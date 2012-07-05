@@ -1,0 +1,19 @@
+{
+    "name": "mermin",
+    "version": "0.0.1",
+    "author": "name <email>",
+    "maintainer": "",
+    "description": "All-in-one compressor/merger/minifier middleware for cluster/express",
+    "category": ["Parsers / Generators", "Express"],
+    "keywords": ["minifier", "minify", "compressor", "resource manager", "uglify"],
+    "homepage": "enter url",
+    "repository": "enter url",
+    "engines": { "node" : ">= 0.4.x" },
+    "main": "index",
+    "dependencies": {
+        "async" : "*",
+        "csso" : ">= 1.2.9",
+        "less" : "*",
+        "uglify-js": ">= 1.0.1",
+    }
+}
