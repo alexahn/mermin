@@ -1,0 +1,63 @@
+#fuseFooter {
+    position: relative;
+    padding-bottom: 10px;
+    background-color: black;
+    border-top: 8px solid;
+
+    .logo {
+        background-color: Black;
+        padding: 21px 34px 0 0;
+    }
+
+    h2 {
+        display: block;
+        text-transform: uppercase;
+        #font > .sans-serif-B-b(18px,20px);
+        font-weight: bold;
+        margin: 25px 0 2px 0;
+    }
+
+    ul {
+        position: relative;
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        height: 20px;
+    }
+
+    li {
+        display: inline;
+        margin: 0;
+        padding: 0;
+
+        a {
+            background: url(/images/head-nav-delim.png) left center no-repeat;
+            text-indent: 10px;
+            text-transform: uppercase;
+            color: white;
+            float: left;
+            #font > .sans-serif-B-sb(14px,14px);
+            margin: 0;
+            padding: 0 10px 0 0;
+            text-shadow: Black 0px 0px 2px;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &:first-child {
+            a {
+                background: none;
+                text-indent: 0;
+            }
+        }
+    }
+
+    .copyright {
+        color: white;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-top: 40px;
+    }
+}
