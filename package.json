@@ -1,7 +1,7 @@
 {
     "name": "mermin",
     "version": "0.0.1",
-    "author": "name <email>",
+    "author": "Alex Ahn <email>",
     "maintainer": "",
     "description": "All-in-one compressor/merger/minifier middleware for cluster/express",
     "category": ["Parsers / Generators", "Express"],
