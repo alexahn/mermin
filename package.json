@@ -11,7 +11,6 @@
     "engines": { "node" : ">= 0.4.x" },
     "main": "index",
     "dependencies": {
-        "async" : "*",
         "csso" : ">= 1.2.9",
         "less" : "*",
         "uglify-js": ">= 1.0.1"

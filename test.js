@@ -37,6 +37,6 @@ mermin.extend('css', function (data, write_path, minify, cb) {
 });
 */
 
-mermin(__dirname + '/', tree);
+mermin.init(__dirname + '/', tree);
 
 mermin.merge(true);
