@@ -9,19 +9,22 @@ var tree =
             'test/file1.js'
         ]
     },
+    'css' : {
+        'project1' : [
+            'test/style1.css'
+        ]
+    },
     'project1' : {
         'js' : [
             'test/file2.js'
-        ]
-    },
-    'css' : {
-        'project1' : [
-            'test/style1.css',
+        ],
+        'css' : [
             'test/style2.css'
         ]
     }
 };
 
+// tested if extends works by commenting out base css type in mermin
 /*
 mermin.extend('css', function (data, write_path, minify, cb) {
     if (minify) {
@@ -33,7 +36,6 @@ mermin.extend('css', function (data, write_path, minify, cb) {
     }
 });
 */
-// extend seems to work
 
 mermin(__dirname + '/', tree);
 
