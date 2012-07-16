@@ -59,3 +59,5 @@ var tree =
 mermin.init(__dirname + '/', tree);
 
 mermin.merge(true);
+
+console.log(mermin.tree);
