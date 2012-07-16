@@ -1,63 +1,107 @@
-#fuseFooter {
-    position: relative;
-    padding-bottom: 10px;
-    background-color: black;
-    border-top: 8px solid;
+@linkColorHover: #00AEEF;
 
-    .logo {
-        background-color: Black;
-        padding: 21px 34px 0 0;
+// Font Stacks
+
+// Note:
+// Using unique font names like n4 for normal/400 and i4 for italic/400 to work around a bug in IE
+// with iframes causing fonts to flicker.  It's assumed we'll use iframes for Facebook and banner ads.
+
+#font {
+    .size-lheight(@size: 14px, @lineHeight: 14px) {
+        font-size: @size;
+        line-height: @lineHeight;
     }
 
-    h2 {
-        display: block;
-        text-transform: uppercase;
-        #font > .sans-serif-B-b(18px,20px);
-        font-weight: bold;
-        margin: 25px 0 2px 0;
+    .set-font(@style,@weight,@size,@lineHeight) {
+        font-style: @style;
+        font-weight: @weight;
+        font-size: @size;
+        line-height: @lineHeight;
     }
 
-    ul {
-        position: relative;
-        list-style: none outside none;
-        margin: 0;
-        padding: 0;
-        height: 20px;
+    //-------------------------------------------------------------------------
+    // League Gothic
+    //-------------------------------------------------------------------------
+
+    // Regular
+    .sans-serif-A(@size: 14px, @lineHeight: 100%) {
+        //font-family: league-gothic-n4, league-gothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: league-gothic-n4, league-gothic, "Arial Narrow", Arial, sans-serif;
+        .set-font(normal,400,@size,@lineHeight);
     }
 
-    li {
-        display: inline;
-        margin: 0;
-        padding: 0;
+    //-------------------------------------------------------------------------
+    // Pill Gothic 300mg
+    //-------------------------------------------------------------------------
 
-        a {
-            background: url(/images/head-nav-delim.png) left center no-repeat;
-            text-indent: 10px;
-            text-transform: uppercase;
-            color: white;
-            float: left;
-            #font > .sans-serif-B-sb(14px,14px);
-            margin: 0;
-            padding: 0 10px 0 0;
-            text-shadow: Black 0px 0px 2px;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        &:first-child {
-            a {
-                background: none;
-                text-indent: 0;
-            }
-        }
+    // Thin
+    .sans-serif-C-l(@size: 14px, @lineHeight: 100%) {
+        font-family: pill-gothic-300mg-n3, pill-gothic-300mg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(normal,300,@size,@lineHeight);
     }
 
-    .copyright {
-        color: white;
-        font-size: 10px;
-        text-transform: uppercase;
-        margin-top: 40px;
+    // Regular
+    .sans-serif-C-n(@size: 14px, @lineHeight: 100%) {
+        font-family: pill-gothic-300mg-n4, pill-gothic-300mg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(normal,400,@size,@lineHeight);
+    }
+
+    //-------------------------------------------------------------------------
+    // Proxima Nova
+    //-------------------------------------------------------------------------
+
+    // Light
+    .sans-serif-B-n(@size: 14px, @lineHeight: 20px) {
+        font-family: proxima-nova-n3, proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(normal,300,@size,@lineHeight);
+    }
+    // Light Italic
+    .sans-serif-B-i(@size: 14px, @lineHeight: 20px) {
+        font-family: proxima-nova-i3, proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(italic,300,@size,@lineHeight);
+    }
+    // Semi Bold
+    .sans-serif-B-sb(@size: 14px, @lineHeight: 20px) {
+        font-family: proxima-nova-n6, proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(normal,600,@size,@lineHeight);
+    }
+    // Bold
+    .sans-serif-B-b(@size: 14px, @lineHeight: 20px) {
+        font-family: proxima-nova-n7, proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        .set-font(normal,700,@size,@lineHeight);
+    }
+
+    //-------------------------------------------------------------------------
+    // FF Tisa Web Pro
+    //-------------------------------------------------------------------------
+
+    // Regular
+    .serif-A-n(@size: 14px, @lineHeight: 20px) {
+        font-family: ff-tisa-web-pro-n4, ff-tisa-web-pro, "Georgia", Times New Roman, Times, serif;
+        .set-font(normal,400,@size,@lineHeight);
+    }
+    // Italic
+    .serif-A-i(@size: 14px, @lineHeight: 20px) {
+        font-family: ff-tisa-web-pro-i4, ff-tisa-web-pro, "Georgia", Times New Roman, Times, serif;
+        .set-font(italic,400,@size,@lineHeight);
+    }
+    // Bold
+    .serif-A-b(@size: 14px, @lineHeight: 20px) {
+        font-family: ff-tisa-web-pro-n4, ff-tisa-web-pro, "Georgia", Times New Roman, Times, serif;
+        .set-font(normal,700,@size,@lineHeight);
+    }
+    // Bold Italic
+    .serif-A-bi(@size: 14px, @lineHeight: 20px) {
+        font-family: ff-tisa-web-pro-i4, ff-tisa-web-pro, "Georgia", Times New Roman, Times, serif;
+        .set-font(italic,700,@size,@lineHeight);
+    }
+
+    //-------------------------------------------------------------------------
+    // Fixed Width Font
+    //-------------------------------------------------------------------------
+
+    .monospace(@size: 12px, @lineHeight: 20px) {
+        font-family: "Monaco", Courier New, monospace;
+        .set-font(normal,400,@size,@lineHeight);
     }
 }
