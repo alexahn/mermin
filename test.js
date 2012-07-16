@@ -20,10 +20,11 @@ mermin.extend('css', function (data, write_path, minify) {
 });
 */
 
-// output directory for each merged group of leaves is the directory of the first item for the category of each type
+// output directory for each merged group of leaves is the first item for the category is a directory, or the directory of the first item if it is a file
 // in our example, it would be /test for both js and css
 // if you wish, you can specify a file that doesn't exist in the desired directory to output to that directory
 // the tree can be flexibly defined so that types and categories can interexchanged as attributes
+// files available as resources on the internet will be skipped in the merge process, but will be accessable via the helper
 
 var tree = 
 {
@@ -60,4 +61,5 @@ mermin.init(__dirname + '/', tree);
 
 mermin.merge(true);
 
-console.log(mermin.tree);
+console.log(mermin.tree.less);
+console.log(mermin.tree.js.project1.paths);
