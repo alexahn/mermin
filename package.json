@@ -7,7 +7,7 @@
     "category": ["Parsers / Generators", "Express", "Cluster"],
     "keywords": ["minifier", "minify", "compiler", "resource manager", "uglify", "csso", "cluster", "resource", "manager"],
     "homepage": "https://github.com/alexahn/mermin",
-    "repository": "https://github.com/alexahn/mermin",
+    "repository": "https://github.com/alexahn/mermin.git",
     "engines": { "node" : ">= 0.4.x" },
     "main": "index",
     "dependencies": {
