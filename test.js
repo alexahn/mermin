@@ -12,17 +12,17 @@ var mermin = require('./index'),
 mermin.extend('css', function (data, write_path, minify) {
     if (minify) {
         var final_output = csso.justDoIt(data);
-        fs.writeFile(write_path, final_output, cb);
+        fs.writeFileSync(write_path, final_output);
     }
     else {
-        fs.writeFile(write_path, data, cb);
+        fs.writeFileSync(write_path, data);
     }
 });
 */
 
 // output directory for each merged group of leaves is the first item for the category is a directory, or the directory of the first item if it is a file
 // in our example, it would be /test for both js and css
-// if you wish, you can specify a file that doesn't exist in the desired directory to output to that directory
+// if you wish, you can specify a directory as the first item to output to that directory
 // the tree can be flexibly defined so that types and categories can interexchanged as attributes
 // files available as resources on the internet will be skipped in the merge process, but will be accessable via the helper
 
@@ -56,6 +56,8 @@ var tree =
         ]
     }
 };
+
+// extend mermin here
 
 mermin.init(__dirname + '/', tree);
 

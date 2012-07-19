@@ -10,12 +10,33 @@ $ npm install mermin
 
 ## Dependencies
 
-Resmin depends on the following libraries:
+Mermin depends on the following libraries:
 
 - [uglify-js](https://github.com/mishoo/UglifyJS)
 - [csso](https://github.com/css/csso/)
 - [async](https://github.com/caolan/async/)
 - [less](https://github.com/cloudhead/less.js)
+
+## Types
+
+Mermin supports three types/extensions by default: js, css, and less. Types are used as attribute names to build the mermin config object.
+
+### Extending Mermin
+
+Mermin can be extended to support other file types by using the extend method. The extend method takes as arguments a string for the file extension, and a function for the processor. The input processor function takes as arguments a string for the merged data, a string for the write path, and a boolean for minify.
+
+```javascript
+var mermin = require('mermin');
+mermin.extend('css', function (data, write_path, minify) {
+    if (minify) {
+        var final_output = csso.justDoIt(data);
+        fs.writeFileSync(write_path, final_output);
+    }
+    else {
+        fs.writeFileSync(write_path, data);
+    }
+});
+```
 
 ## Basic usage
 
@@ -76,14 +97,14 @@ var merminConfig = {
             '/project_m/css/file_n.css'
         ]
     }
-}
-;
+};
 ```
     
-Instantiate mermin, init, merge, and add the dynamic helper to connect/express.
+Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/express.
     
     var mermin = require('mermin'),
         minify = true;
+    // extend mermin here
     mermin.init(merminConfig);
     mermin.merge(minify);
     app.dynamicHelpers(mermin.dynamicHelper);
@@ -109,6 +130,9 @@ The mermin variable is now accessible through your template engine of choice.
     <script src="<%= mermin.js.project_1[url] %>"></script>
 <% } %>
 ```
+
+## File Output
+The output directory for each type for each merge group/project is the first directory of the first item for each type for each merge group/project or the first item if it is a directory. The format of the file names will be [project].merged.[type]. Files available as resources on the internet will be skipped in the merge process, but will be accessable via the helper.
 
 ## License
 
