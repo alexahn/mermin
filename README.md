@@ -45,6 +45,8 @@ Mermin is simple to use.
 ###Example configuration:
 
 ```javascript
+var mermin = require('mermin');
+
 var merminConfig = {
     'js' : {
         'project_1' : [
@@ -102,8 +104,7 @@ var merminConfig = {
     
 Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/express.
     
-    var mermin = require('mermin'),
-        minify = true;
+    var minify = true;
     // extend mermin here
     mermin.init(merminConfig);
     mermin.merge(minify);
