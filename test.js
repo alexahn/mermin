@@ -24,7 +24,7 @@ mermin.extend('css', function (data, write_path, minify) {
 // in our example, it would be /test for both js and css
 // if you wish, you can specify a directory as the first item to output to that directory
 // the tree can be flexibly defined so that types and categories can interexchanged as attributes
-// files available as resources on the internet will be skipped in the merge process, but will be accessable via the helper
+// files available as resources on the internet will be skipped in the merge process, but will be accessible via the helper
 
 var tree = 
 {

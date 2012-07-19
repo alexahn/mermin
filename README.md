@@ -19,7 +19,7 @@ Mermin depends on the following libraries:
 
 ## Types
 
-Mermin supports three types/extensions by default: js, css, and less. Types are used as attribute names to build the mermin config object.
+Mermin supports three types/extensions by default: js, css, and less. Types are used as key names to build the mermin config object.
 
 ### Extending Mermin
 
@@ -132,7 +132,7 @@ The mermin variable is now accessible through your template engine of choice.
 ```
 
 ## File Output
-The output directory for each type for each merge group/project is the first directory of the first item for each type for each merge group/project or the first item if it is a directory. The format of the file names will be [project].merged.[type]. Files available as resources on the internet will be skipped in the merge process, but will be accessable via the helper.
+The output directory for each subgroup (of type and group/project) is the directory of the first item for each subgroup, or the first item if it is a directory. Mermin will traverse the config object synchronously via depth-first exhaustion. The format of the file names will be [project].merged.[type]. Files available as resources on the internet will be skipped in the merge process, but will be accessible via the helper.
 
 ## License
 
