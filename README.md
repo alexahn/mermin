@@ -103,12 +103,13 @@ var merminConfig = {
 ```
     
 Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/express.
-    
-    var minify = true;
-    // extend mermin here
-    mermin.init(merminConfig);
-    mermin.merge(minify);
-    app.dynamicHelpers(mermin.dynamicHelper);
+```javascript
+var minify = true;
+// extend mermin here
+ mermin.init(merminConfig);
+ mermin.merge(minify);
+app.dynamicHelpers(mermin.dynamicHelper);
+```
 
 The mermin variable is now accessible through your template engine of choice.
 
