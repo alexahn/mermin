@@ -106,7 +106,7 @@ Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/e
 ```javascript
 var minify = true;
 // extend mermin here
-mermin.init(merminConfig);
+mermin.init(__dirname + '/public/', merminConfig);
 mermin.merge(minify);
 app.dynamicHelpers(mermin.dynamicHelper);
 ```
@@ -117,9 +117,9 @@ The mermin variable is now accessible through your template engine of choice.
 
 ```yaml
 - each url in mermin.css.project_1
-  link(rel='stylesheet', href=url)
+    link(rel='stylesheet', href=url)
 - each url in mermin.js.project_1
-  script(src=url)
+    script(src=url)
 ```
 
 ###Example when using ejs:
