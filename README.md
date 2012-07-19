@@ -27,30 +27,53 @@ Mermin is simple to use.
 var merminConfig = {
     'js' : {
         'project_1' : [
-            'filepath_1_1.js',
+            '/js/project_1/file_1.js',
             ..,
-            'filepath_1_n.js'
+            '/js/project_1/file_n.js'
         ],
         ..,
         'project_m' : [
-            'filepath_m_1.js',
+            '/js/project_m/file_1.js',
             ..,
-            'filepath_m_n.js'
+            '/js/project_m/file_n.js'
         ]
     },
+    'css' : {
+        'project_1' : [
+            '/css/project_1/file_1.css',
+            ..,
+            '/css/project_m/file_n.css'
+        ],
+        ..,
+        'project_m' : [
+            '/css/project_m/file_1.css',
+            ..,
+            '/css/project_m/file_n.css'
+        ]
+    },   
     'project_1' : {
         'js' : [
-            'filepath_1_1.js',
+            '/project_1/js/file_1.js',
             ..,
-            'filepath_1_n.js'
+            '/project_1/js/file_n.js'
+        ],
+        'css' : [
+            '/project_1/css/file_1.css',
+            ..,
+            '/project_1/css/file_n.css'
         ]
     },
     ..,
     'project_m' : {
         'js' : [
-            'filepath_m_1.js',
+            '/project_m/js/file_1.js',
             ..,
-            'filepath_m_n.js'
+            '/project_m/js/file_n.js'
+        ],
+        'css' : [
+            '/project_m/css/file_1.css',
+            ..,
+            '/project_m/css/file_n.css'
         ]
     }
 }
@@ -70,19 +93,19 @@ The mermin variable is now accessible through your template engine of choice.
 ###Example when using jade/haml:
 
 ```yaml
-- each url in mermin.css.project\_1
+- each url in mermin.css.project_1
   link(rel='stylesheet', href=url)
-- each url in mermin.js.project\_1
+- each url in mermin.js.project_1
   script(src=url)
 ```
 
 ###Example when using ejs:
 
 ```html
-<% for (url in mermin.css.project\_1) { %>
+<% for (url in mermin.css.project_1) { %>
     <link rel="stylesheet" href="<%= mermin.css.project_1[url] %>">
 <% } %>
-<% for (url in mermin.js.project\_1) { %>
+<% for (url in mermin.js.project_1) { %>
     <script src="<%= mermin.js.project_1[url] %>"></script>
 <% } %>
 ```
