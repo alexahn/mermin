@@ -106,8 +106,8 @@ Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/e
 ```javascript
 var minify = true;
 // extend mermin here
- mermin.init(merminConfig);
- mermin.merge(minify);
+mermin.init(merminConfig);
+mermin.merge(minify);
 app.dynamicHelpers(mermin.dynamicHelper);
 ```
 
