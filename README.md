@@ -12,10 +12,10 @@ $ npm install mermin
 
 Mermin depends on the following libraries:
 
-- [uglify-js](https://github.com/mishoo/UglifyJS)
-- [csso](https://github.com/css/csso/)
 - [async](https://github.com/caolan/async/)
+- [csso](https://github.com/css/csso/)
 - [less](https://github.com/cloudhead/less.js)
+- [uglify-js](https://github.com/mishoo/UglifyJS)
 
 ## Types
 
