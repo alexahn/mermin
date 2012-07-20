@@ -30,29 +30,29 @@ var tree =
 {
     'js' : {
         'project1' : [
-            'test/file1.js',
+            'test/js1.js',
             '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'
         ]
     },
     'css' : {
         'project1' : [
-            'test/style1.css'
+            'test/css1.css'
         ]
     },
     'less' : {
         'project1' : [
-            'test/style1.less'
+            'test/less1.less'
         ]
     },
     'project1' : {
         'js' : [
-            'test/file2.js'
+            'test/js2.js'
         ],
         'css' : [
-            'test/style2.css'
+            'test/css2.css'
         ],
         'less' : [
-            'test/style2.less'
+            'test/less2.less'
         ]
     }
 };
