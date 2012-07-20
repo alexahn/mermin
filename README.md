@@ -21,8 +21,16 @@ Mermin depends on the following libraries:
 
 Mermin supports three types/extensions by default: js, css, and less. Types are used as key names to build the mermin config object.
 
-### Extending Mermin
+## Basic usage
 
+Mermin is simple to use. Instantiate mermin, extend, initialize, merge, and add the dynamic helper to connect/express.
+
+### Instantiate
+```javascript
+var mermin = require('mermin');
+```
+
+### Extend
 Mermin can be extended to support other file types by using the extend method. The extend method takes as arguments a string for the file extension, and a function for the processor. The input processor function takes as arguments a string for the merged data, a string for the write path, and a boolean for minify.
 
 ```javascript
@@ -38,15 +46,9 @@ mermin.extend('css', function (data, write_path, minify) {
 });
 ```
 
-## Basic usage
-
-Mermin is simple to use.
-
-###Example configuration:
+### Configuration Template:
 
 ```javascript
-var mermin = require('mermin');
-
 var merminConfig = {
     'js' : {
         'project_1' : [
@@ -101,19 +103,26 @@ var merminConfig = {
     }
 };
 ```
-    
-Instantiate mermin, extend, init, merge, and add the dynamic helper to connect/express.
+
+### Initialize
+```javascript
+mermin.init(__dirname + '/public/', merminConfig);
+```
+
+### Merge
 ```javascript
 var minify = true;
-// extend mermin here
-mermin.init(__dirname + '/public/', merminConfig);
 mermin.merge(minify);
+```
+
+### Add Dynamic Helper
+```javascript
 app.dynamicHelpers(mermin.dynamicHelper);
 ```
 
 The mermin variable is now accessible through your template engine of choice.
 
-###Example when using jade/haml:
+### Example when using jade/haml:
 
 ```yaml
 - each url in mermin.css.project_1
@@ -122,7 +131,7 @@ The mermin variable is now accessible through your template engine of choice.
     script(src=url)
 ```
 
-###Example when using ejs:
+### Example when using ejs:
 
 ```html
 <% for (url in mermin.css.project_1) { %>
