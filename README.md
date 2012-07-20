@@ -34,7 +34,6 @@ var mermin = require('mermin');
 Mermin can be extended to support other file types by using the extend method. The extend method takes as arguments a string for the file extension, and a function for the processor. The input processor function takes as arguments a string for the merged data, a string for the write path, and a boolean for minify.
 
 ```javascript
-var mermin = require('mermin');
 mermin.extend('css', function (data, write_path, minify) {
     if (minify) {
         var final_output = csso.justDoIt(data);
