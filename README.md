@@ -124,19 +124,19 @@ The mermin variable is now accessible through your template engine of choice.
 ### Example when using jade/haml:
 
 ```yaml
-- each url in mermin.css.project_1.paths
+- each url in mermin.css.project_1
     link(rel='stylesheet', href=url)
-- each url in mermin.js.project_1.paths
+- each url in mermin.js.project_1
     script(src=url)
 ```
 
 ### Example when using ejs:
 
 ```html
-<% for (url in mermin.css.project_1.paths) { %>
+<% for (url in mermin.css.project_1) { %>
     <link rel="stylesheet" href="<%= mermin.css.project_1[url] %>">
 <% } %>
-<% for (url in mermin.js.project_1.paths) { %>
+<% for (url in mermin.js.project_1) { %>
     <script src="<%= mermin.js.project_1[url] %>"></script>
 <% } %>
 ```

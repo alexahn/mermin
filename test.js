@@ -63,5 +63,4 @@ mermin.init(__dirname + '/', tree);
 
 mermin.merge(true);
 
-console.log(mermin.tree.less);
-console.log(mermin.tree.js.project1.paths);
+console.log(mermin.tree);
