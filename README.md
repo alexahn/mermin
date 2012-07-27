@@ -1,5 +1,5 @@
 # mermin
-    
+
 Simple merger/minifier/compiler resource manager for cluster/express.
 
 ## Installation
