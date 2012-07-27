@@ -114,9 +114,9 @@ var minify = true;
 mermin.merge(minify);
 ```
 
-### Add Dynamic Helper
+### Add Template Helper
 ```javascript
-app.dynamicHelpers(mermin.dynamicHelper);
+app.use(mermin.middleware);
 ```
 
 The mermin variable is now accessible through your template engine of choice.

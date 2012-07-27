@@ -1,6 +1,6 @@
 {
     "name": "mermin",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Alex Ahn <alex.ahn@msg.com>",
     "maintainer": "Alex Ahn",
     "description": "Simple merger/minifier/compiler resource manager for cluster/express",
