@@ -23,7 +23,7 @@ Mermin supports three types/extensions by default: js, css, and less. Types are 
 
 ## Basic usage
 
-Mermin is simple to use. Instantiate mermin, extend, initialize, merge, and add the dynamic helper to connect/express.
+Mermin is simple to use. Instantiate mermin, extend, initialize, merge, and add the template helper to connect/express.
 
 ### Instantiate
 ```javascript
