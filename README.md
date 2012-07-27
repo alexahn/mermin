@@ -114,7 +114,7 @@ var minify = true;
 mermin.merge(minify);
 ```
 
-### Add Template Helper
+### Template Helper
 ```javascript
 app.use(mermin.middleware);
 ```
