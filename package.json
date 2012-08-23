@@ -1,9 +1,9 @@
 {
     "name": "mermin",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "author": "Alex Ahn <alex.ahn@msg.com>",
     "maintainer": "Alex Ahn",
-    "description": "Simple merger/minifier/compiler resource manager for cluster/express",
+    "description": "Simple merger/minifier/compiler/resource manager for cluster/express",
     "category": ["Parsers / Generators", "Express", "Cluster"],
     "keywords": ["minifier", "minify", "compiler", "resource manager", "uglify", "csso", "cluster", "resource", "manager"],
     "homepage": "https://github.com/alexahn/mermin",

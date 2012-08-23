@@ -58,10 +58,10 @@ var tree =
 };
 
 var resources = new mermin({
-    root : __dirname + '/',
+    root : __dirname,
     config : tree,
     merge : true,
-    minify : false
+    minify : true
 });
 
 
