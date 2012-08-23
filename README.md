@@ -23,9 +23,9 @@ Mermin supports three types/extensions by default: js, css, and less. Types are 
 
 ## Basic usage
 
-Mermin is simple to use. Instantiate mermin, extend, initialize, merge, and add the template helper to connect/express.
+Mermin is simple to use. Load mermin, extend, instantiate, and add the middleware to connect/express.
 
-### Instantiate
+### Load
 ```javascript
 var mermin = require('mermin');
 ```
@@ -103,30 +103,33 @@ var merminConfig = {
 };
 ```
 
-### Initialize
+Categories/projects and types can be inter-exchanged when defining the config object.
+
+### Instantiate
 ```javascript
-mermin.init(__dirname + '/public/', merminConfig);
+var resources = new mermin({
+    path_root : __dirname + '/public/', merminConfig,
+    config : merminConfig,
+    merge : true,
+    minify : true,
+    name : 'resources'
+});
+```
+The name attribute specifies the name of the local variable mermin will use in the middleware; specifically, the name of the variable in the template engine.
+
+### Middleware
+```javascript
+app.use(resources.middleware);
 ```
 
-### Merge
-```javascript
-var minify = true;
-mermin.merge(minify);
-```
-
-### Template Helper
-```javascript
-app.use(mermin.middleware);
-```
-
-The mermin variable is now accessible through your template engine of choice.
+The 'resources' (or 'mermin' by default) variable is now accessible through your template engine of choice.
 
 ### Example when using jade/haml:
 
 ```yaml
-- each url in mermin.css.project_1
+- each url in resources.css.project_1
     link(rel='stylesheet', href=url)
-- each url in mermin.js.project_1
+- each url in resources.js.project_1
     script(src=url)
 ```
 
@@ -134,12 +137,58 @@ The mermin variable is now accessible through your template engine of choice.
 
 ```html
 <% for (url in mermin.css.project_1) { %>
-    <link rel="stylesheet" href="<%= mermin.css.project_1[url] %>">
+    <link rel="stylesheet" href="<%= resources.css.project_1[url] %>">
 <% } %>
 <% for (url in mermin.js.project_1) { %>
-    <script src="<%= mermin.js.project_1[url] %>"></script>
+    <script src="<%= resources.js.project_1[url] %>"></script>
 <% } %>
 ```
+
+## Extended Use Cases
+
+### Content Grouping
+
+It is possible to use mermin to group together static content, such as images. It would be wise, though not necessary, to define a new type associated with these contents.
+
+```
+var mermin = require('mermin');
+
+mermin.extend('images', function (data, write_path, minify) {
+    // empty function because we will not be mergin
+    // types will not be recognized unless we extend mermin
+});
+
+var mediaConfig = {
+    'images' : {
+        'headers' : [
+            '/images/headers/header_1.jpg',
+            ...
+            '/images/headers/header_2.jpg'
+        ],
+        'background' : [
+            '/images/background.jpg'
+        ]
+    }
+}
+
+var media = new mermin({
+    path_root : __dirname + '/public/',
+    config : mediaConfig,
+    merge : false,
+    minify : false,
+    name : 'media'
+});
+
+app.use(media.middleware);
+```
+
+Example when using jade/haml:
+```yaml
+img(src=media.images.headers[0]);
+img(src=media.images.background[0]);
+```
+
+
 
 ## File Output
 The output directory for each subgroup (of type and group/project) is the directory of the first item for each subgroup, or the first item if it is a directory. Mermin will traverse the config object synchronously via depth-first exhaustion. The format of the file names will be [project].merged.[type]. Files available as resources on the internet will be skipped in the merge process, but will be accessible via the helper.

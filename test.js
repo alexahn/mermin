@@ -2,7 +2,7 @@ var mermin = require('./index'),
     csso = require('csso'),
     fs = require('fs');
 
-// notes : extend mermin before calling init, otherwise the tree will not contain any of the extended types
+// notes : extend mermin before creating instances
 
 // mermin can be extended to support other file types by using the extend method
 // the extend method takes as arguments a string for the file extension string, and a function for the processor
@@ -57,16 +57,11 @@ var tree =
     }
 };
 
-// extend mermin here
 var resources = new mermin({
     root : __dirname + '/',
     config : tree,
     merge : true,
     minify : false
 });
-//resources.merge();
-//mermin.init(__dirname + '/', tree);
 
-//mermin.merge(true);
 
-//console.log(mermin.tree);
