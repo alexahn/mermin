@@ -30,8 +30,8 @@ var tree =
 {
     'js' : {
         'project1' : [
-            'test/js1.js',
-            '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'
+            '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js',
+            'test/js1.js'
         ]
     },
     'css' : {
@@ -58,9 +58,15 @@ var tree =
 };
 
 // extend mermin here
+var resources = new mermin({
+    root : __dirname + '/',
+    config : tree,
+    merge : true,
+    minify : false
+});
+//resources.merge();
+//mermin.init(__dirname + '/', tree);
 
-mermin.init(__dirname + '/', tree);
+//mermin.merge(true);
 
-mermin.merge(true);
-
-console.log(mermin.tree);
+//console.log(mermin.tree);
