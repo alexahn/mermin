@@ -108,7 +108,7 @@ Categories/projects and types can be inter-exchanged when defining the config ob
 ### Instantiate
 ```javascript
 var resources = new mermin({
-    path_root : __dirname + '/public/', merminConfig,
+    path_root : __dirname + '/public/',
     config : merminConfig,
     merge : true,
     minify : true,
@@ -136,10 +136,10 @@ The 'resources' (or 'mermin' by default) variable is now accessible through your
 ### Example when using ejs:
 
 ```html
-<% for (url in mermin.css.project_1) { %>
+<% for (url in resources.css.project_1) { %>
     <link rel="stylesheet" href="<%= resources.css.project_1[url] %>">
 <% } %>
-<% for (url in mermin.js.project_1) { %>
+<% for (url in resources.js.project_1) { %>
     <script src="<%= resources.js.project_1[url] %>"></script>
 <% } %>
 ```
@@ -154,7 +154,7 @@ It is possible to use mermin to group together static content, such as images. I
 var mermin = require('mermin');
 
 mermin.extend('images', function (data, write_path, minify) {
-    // empty function because we will not be mergin
+    // empty function because we will not be merging
     // types will not be recognized unless we extend mermin
 });
 
