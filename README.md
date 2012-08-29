@@ -183,6 +183,7 @@ app.use(media.middleware);
 ```
 
 Example when using jade/haml:
+
 ```yaml
 img(src=media.images.headers[0]);
 img(src=media.images.background[0]);
