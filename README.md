@@ -26,6 +26,7 @@ Mermin supports three types/extensions by default: js, css, and less. Types are 
 Mermin is simple to use. Load mermin, extend, instantiate, and add the middleware to connect/express.
 
 ### Load
+
 ```javascript
 var mermin = require('mermin');
 ```
@@ -106,18 +107,27 @@ var merminConfig = {
 Categories/projects and types can be inter-exchanged when defining the config object.
 
 ### Instantiate
+
 ```javascript
 var resources = new mermin({
-    path_root : __dirname + '/public/',
+    path : __dirname + '/public/',
     config : merminConfig,
     merge : true,
     minify : true,
-    name : 'resources'
+    name : 'resources',
+    watch : true
 });
 ```
-The name attribute specifies the name of the local variable mermin will use in the middleware; specifically, the name of the variable in the template engine.
+
+* **path** : An absolute directory path that will be a prefix to paths defined in the config object
+* **config** : An object specifying the paths to files
+* **merge** : A boolean specifying if contents should be merged
+* **minify** : A boolean specifying if the contents should be minified (only if merge is true)
+* **name** : A string specifying the name of the variable in the middleware/template
+* **watch** : A boolean specifying if merged files should automatically be re-merged on change
 
 ### Middleware
+
 ```javascript
 app.use(resources.middleware);
 ```
@@ -148,13 +158,12 @@ The 'resources' (or 'mermin' by default) variable is now accessible through your
 
 ### Content Grouping
 
-It is possible to use mermin to group together static content, such as images. It would be wise, though not necessary, to define a new type associated with these contents.
+It is possible to use mermin to group together static content, such as images.
 
-```
+```javascript
 var mermin = require('mermin');
 
 mermin.extend('images', function (data, write_path, minify) {
-    // empty function because we will not be merging
     // types will not be recognized unless we extend mermin
 });
 
@@ -169,10 +178,10 @@ var mediaConfig = {
             '/images/background.jpg'
         ]
     }
-}
+};
 
 var media = new mermin({
-    path_root : __dirname + '/public/',
+    path : __dirname + '/public/',
     config : mediaConfig,
     merge : false,
     minify : false,
@@ -188,7 +197,6 @@ Example when using jade/haml:
 img(src=media.images.headers[0]);
 img(src=media.images.background[0]);
 ```
-
 
 
 ## File Output
