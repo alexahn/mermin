@@ -1,0 +1,1 @@
+function testing1(e,t){var n;console.log(a)}function testing2(e,t){var n;console.log(b)}var a=20;console.log(10);var b=20;console.log(20)
