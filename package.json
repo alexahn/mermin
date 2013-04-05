@@ -1,6 +1,6 @@
 {
     "name": "mermin",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "author": "Alex Ahn <alex.ahn@msg.com>",
     "maintainer": "Alex Ahn",
     "description": "Simple merger/minifier/compiler/resource manager for cluster/express",
@@ -11,9 +11,9 @@
     "engines": { "node" : ">= 0.4.x" },
     "main": "index",
     "dependencies": {
-        "csso" : ">= 1.2.9",
+        "csso" : "1.2.9",
         "less" : "*",
-        "uglify-js": ">= 1.0.1",
+        "uglify-js": "1.0.1",
         "async" : "*"
     }
 }
